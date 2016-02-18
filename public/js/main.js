@@ -241,7 +241,7 @@ $(function() {
   socket.on('login', function (data) {
     connected = true;
     // Display the welcome message
-    var message = "Are you ready to answer some weird qusetions?";
+    var message = "Are you ready to answer some weird questions?";
     log(message, {
       prepend: true
     });

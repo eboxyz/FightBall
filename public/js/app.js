@@ -229,7 +229,7 @@ $(function(){
   socket.on('login', function(data){
     connected = true;
     //display welcome
-    var message = "lol you suck - ";
+    var message = "get ready for some fun";
     log(message, {prepend: true});
     addParticipantsMessage(data)
   });
