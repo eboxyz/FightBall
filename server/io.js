@@ -1,4 +1,4 @@
-var io = require(socket.io)();
+var io = require('socket.io')();
 
 //number of users connected
 var users = {};

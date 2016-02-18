@@ -6,6 +6,7 @@ var mongoose = Promise.promisifyAll(require('mongoose'));
 var dotenv = require('dotenv').config();
 var passport = require('passport');
 var bodyParser = require('body-parser');
+var path = require('path');
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var port = process.env.PORT || 8080;
@@ -18,9 +19,9 @@ mongoose.connect('mongodb://localhost/gameStuff')
 //configure apple to handle CORS requests
 // app.use(cors());
 
-app.use('/js', express.static(__dirname + '/public/js'));
-app.use('/css', express.static(__dirname + '/public/css'))
-app.use(express.static(__dirname + '/public/views'))
+// app.use('/js', express.static(__dirname + '/public/js'));
+// app.use('/css', express.static(__dirname + '/public/css'))
+// app.use(express.static(__dirname + '/public/views'))
 
 //allows access to methods in passport file
 //initialize passport for usage in app
@@ -38,8 +39,12 @@ app.use('/', routes);
 
 require('./controllers/loginController.js')(app, passport)
 
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
+
+//setup views
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
 //seed user
 require('./db/seed.js').seedUsers();
 
@@ -49,6 +54,8 @@ require('./db/seed.js').seedUsers();
 server.listen(port, function(){
   console.log('Server open at port %d', port);
 });
+
+
 
 //relics of the past
 // var cors = require('cors');

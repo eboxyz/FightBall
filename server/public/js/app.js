@@ -6,6 +6,8 @@ $(function(){
     '#3b88eb', '#3824aa', '#a700ff', '#d300e7'
     ];
 
+  var socket = io();
+
 
   //initialize variables
   var $window = $(window);
@@ -22,7 +24,6 @@ $(function(){
   var lastTypingTime;
   var $currentInput = $usernameInput.focus();
 
-  var socket = io();
 
   function addParticipantsMessage (data){
     var message = '';
