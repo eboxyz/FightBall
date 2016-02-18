@@ -18,7 +18,7 @@ module.exports = function(app, passport){
 
   //local login authenticated through passport
   app.post('/login', passport.authenticate('local-login',{
-    successRedirect: '/',
+    successRedirect: '/game',
     failureRedirect: '/local/login'
   }));
 
@@ -54,6 +54,12 @@ module.exports = function(app, passport){
     req.logout();
     res.redirect('/')
   });
+
+  //game page route
+  app.get('/game', function(req, res){
+    res.render('game.ejs')
+  })
+
 
 
 }

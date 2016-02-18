@@ -6,13 +6,9 @@ var mongoose = Promise.promisifyAll(require('mongoose'));
 var dotenv = require('dotenv').config();
 var passport = require('passport');
 var bodyParser = require('body-parser');
-var cors = require('cors');
-var jwt = require('jsonwebtoken');
-var io = require('socket.io');
-var http = require('http');
-var server = http.createServer(app);
-var io = io.listen(server);
-
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
+var port = process.env.PORT || 8080;
 
 //mongo connections (local+mongolab)
 mongoose.connect('mongodb://localhost/gameStuff')
@@ -20,12 +16,11 @@ mongoose.connect('mongodb://localhost/gameStuff')
 
 
 //configure apple to handle CORS requests
-app.use(cors());
+// app.use(cors());
 
-app.use('/static', express.static(__dirname  + '../client/'));
-
-//secret for JWT to create tokens
-var superSecret = process.env.superSecret
+app.use('/js', express.static(__dirname + '/public/js'));
+app.use('/css', express.static(__dirname + '/public/css'))
+app.use(express.static(__dirname + '/public'))
 
 //allows access to methods in passport file
 //initialize passport for usage in app
@@ -48,10 +43,23 @@ app.set('view engine', 'ejs');
 //seed user
 require('./db/seed.js').seedUsers();
 
-//socket.io stuff
-require('./config/socket')(io);
+
 
 //app listening here
-app.listen(process.env.PORT || 8080, function(){
-  console.log('port open on localhost:8080')
-})
+server.listen(port, function(){
+  console.log('Update: Server listening at port %d', port);
+});
+
+//relics of the past
+// var cors = require('cors');
+// var jwt = require('jsonwebtoken');
+// var io = require('socket.io');
+// var http = require('http');
+// var server = http.createServer(app);
+// var io = io.listen(server);
+
+
+// //secret for JWT to create tokens
+// var superSecret = process.env.superSecret
+// //socket.io stuff
+// require('./config/socket')(io);

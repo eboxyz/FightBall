@@ -41,25 +41,27 @@ exports.deleteUser = function(req, res, next){
   })
 }
 
-exports.authenticate = function(req,res,next){
-  User.findOne({ 'local.username': req.body.username})
-    .select('local.username local.password').exec(function(err, user){
-      if(err) throw err;
-      if(!user){
-        res.json({success: false, message: 'Authentication failed, User not found.'})
-      } else if(user){
-        var validPassword = user.validPass(req.body.password);
-        if(!validPassword){
-          res.json({success: false, message: 'Authentication failed. Wrong password.'})
-        } else{
-          var token = jwt.sign({
-            username: user.local.username
-          }, superSecret, {expiresIn: 86400});
-          res.json({success: true, message: 'Enjoy your token!', token: token})
-        }
-      }
-    });
-}
+
+//relics of the past
+// exports.authenticate = function(req,res,next){
+//   User.findOne({ 'local.username': req.body.username})
+//     .select('local.username local.password').exec(function(err, user){
+//       if(err) throw err;
+//       if(!user){
+//         res.json({success: false, message: 'Authentication failed, User not found.'})
+//       } else if(user){
+//         var validPassword = user.validPass(req.body.password);
+//         if(!validPassword){
+//           res.json({success: false, message: 'Authentication failed. Wrong password.'})
+//         } else{
+//           var token = jwt.sign({
+//             username: user.local.username
+//           }, superSecret, {expiresIn: 86400});
+//           res.json({success: true, message: 'Enjoy your token!', token: token})
+//         }
+//       }
+//     });
+// }
 
 
 
