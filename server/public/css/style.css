@@ -1,4 +1,4 @@
-/* Fix user-agent */
+ /* Fix user-agent */
 
 * {
   box-sizing: border-box;
@@ -28,7 +28,7 @@ html, body {
 
 ul {
   list-style: none;
-  word-wrap: break-wor  d;
+  word-wrap: break-word;
 }
 
 /* Sorta like dot leaders but a line is fine */
@@ -163,3 +163,4 @@ span.timestamp {
   right: 0;
   width: 100%;
 }
+
