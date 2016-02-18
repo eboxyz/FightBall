@@ -11,8 +11,8 @@ var io = require('socket.io')(server);
 var port = process.env.PORT || 8080;
 
 //mongo connections (local+mongolab)
-mongoose.connect('mongodb://localhost/gameStuff')
-// mongoose.connect('mongodb://heroku_tg23vpt5:72qsqn1abk15rckjliop1l91v3@ds059195.mongolab.com:59195/heroku_tg23vpt5')
+// mongoose.connect('mongodb://localhost/gameStuff')
+mongoose.connect('mongodb://heroku_tg23vpt5:72qsqn1abk15rckjliop1l91v3@ds059195.mongolab.com:59195/heroku_tg23vpt5')
 
 
 //configure apple to handle CORS requests
