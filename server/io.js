@@ -67,7 +67,7 @@ io.on('connection', function(socket){
 
 });
 
-
+module.exports = io;
 
 
 
