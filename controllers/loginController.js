@@ -8,7 +8,7 @@ var cors = require('cors');
 
 module.exports = function(app, passport){
   app.get('/', function(req,res){
-    res.render('index.ejs')
+    res.render('index.html')
   })
 
   //route to access login page
