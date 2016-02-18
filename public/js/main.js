@@ -28,9 +28,9 @@ $(function() {
   function addParticipantsMessage (data) {
     var message = '';
     if (data.numUsers === 1) {
-      message += "there's 1 participant";
+      message += "there is definitely more than one participant right now";
     } else {
-      message += "there're " + data.numUsers + " participants";
+      message += "there are " + data.numUsers + " participants";
     }
     log(message);
   }
