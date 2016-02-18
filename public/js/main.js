@@ -241,7 +241,7 @@ $(function() {
   socket.on('login', function (data) {
     connected = true;
     // Display the welcome message
-    var message = "Welcome to Socket.IO Chat – ";
+    var message = "Are you ready to answer some weird qusetions?";
     log(message, {
       prepend: true
     });
