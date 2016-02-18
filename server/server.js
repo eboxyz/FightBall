@@ -20,7 +20,7 @@ mongoose.connect('mongodb://localhost/gameStuff')
 
 app.use('/js', express.static(__dirname + '/public/js'));
 app.use('/css', express.static(__dirname + '/public/css'))
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/views'))
 
 //allows access to methods in passport file
 //initialize passport for usage in app
@@ -38,8 +38,8 @@ app.use('/', routes);
 
 require('./controllers/loginController.js')(app, passport)
 
-app.engine('ejs', require('ejs').renderFile);
-app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 //seed user
 require('./db/seed.js').seedUsers();
 
@@ -47,7 +47,7 @@ require('./db/seed.js').seedUsers();
 
 //app listening here
 server.listen(port, function(){
-  console.log('Update: Server listening at port %d', port);
+  console.log('Server open at port %d', port);
 });
 
 //relics of the past
