@@ -262,6 +262,10 @@ $(function(){
     removeChatTyping(data);
   });
 
+  socket.on('pong', function(data){
+    console.log('socket: server said pong(4)', data)
+  });
+
 
 })
 
