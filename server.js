@@ -100,6 +100,11 @@ mongoose.connect('mongodb://heroku_tg23vpt5:72qsqn1abk15rckjliop1l91v3@ds059195.
       }
     });
 
+    socket.on('event', function(data){
+      io.emit('event', {data: data})
+      console.log('this is hitting the socket')
+    });
+
     // for( var i in line_history){
     //   socket.emit('draw_line', {line: line_history[i]});
     // };

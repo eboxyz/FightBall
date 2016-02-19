@@ -190,7 +190,6 @@ span.timestamp {
 }
 
 .picture{
-  float: right;
   margin-left: 55%;
   margin-right: 5%;
   margin-top: 5%;
@@ -198,4 +197,14 @@ span.timestamp {
 
 #timer{
   margin-left: 90%;
+}
+
+.text{
+  margin-left: 55%;
+  margin-right: 5%;
+  margin-top: 5%;
+}
+
+#lol{
+  margin-left:90%;
 }

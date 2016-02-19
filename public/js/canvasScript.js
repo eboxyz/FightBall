@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
       context.stroke();
    });
 
+
    // main loop, running every 25ms
    function mainLoop() {
       // check if the user is drawing
@@ -53,8 +54,39 @@ document.addEventListener("DOMContentLoaded", function() {
     context.clearRect(0, 0, canvas.width, canvas.height);
    });
 
+   function shuffleArr(arr){
+      for(var j, x, i = arr.length; i; j = parseInt(Math.random() * i), x = arr[--i], arr[i] = arr[j], arr[j] = x);
+      return arr;
+    }
 
-   var cards = ["A Gypsy curse",
+   var questCards = ["TSA guidelines now prohibit __________ on airplanes",
+                    "It's a pity that kids these days are all getting involved with __________",
+                    "In 1,000 years, when paper money is but a distant memory, __________ will be our currency",
+                    "Major League Baseball has banned __________ for giving players an unfair advantage",
+                    "What is Batman's guilty pleasure?",
+                    "Next from J.K. Rowling: Harry Potter and the Chamber of __________",
+                    "I'm sorry, Professor, but I couldn't complete my homework because of __________",
+                    "What did I bring back from Mexico?",
+                    "In Michael Jackson's final moments, he thought about __________.",
+                    "White people like __________.",
+                    "Why do I hurt all over?",
+                    "A romantic, candlelit dinner would be incomplete without __________.",
+                    "What will I bring back in time to convince people that I am a powerful wizard?",
+                    "BILLY MAYS HERE FOR __________."
+                    ]
+
+  socket.on('event', $('#lol').click(function(data){
+        shuffleArr(questCards)
+    console.log(questCards[0])
+    $('.text').html(questCards[0])
+  }));
+
+  // socket.on('event', function(data){
+  //   shuffle(questCards)
+  //   $('.text').html(questCards)
+  // })
+
+   var answerCards = ["A Gypsy curse",
                 "A moment of silence", "A sausage festival", "An honest cop with nothing left to lose", "Famine", "Flesh-eating bacteria", "Flying sex snakes", "Not giving a shit about the Third World",
                 "Sexting", "Porn stars", "72 virgins", "A drive-by shooting", "A time travel paradox", "Authentic Mexican cuisine",
                 "Bling", "Consultants", "Crippling debt", "Daddy issues", "The Donald Trump Seal of Approval™",
@@ -72,16 +104,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 "Smegma", "Alcoholism", "A middle-aged man on roller skates", "The Care Bear Stare"
                 ]
 
-   function shuffleArr(arr){
-      for(var j, x, i = arr.length; i; j = parseInt(Math.random() * i), x = arr[--i], arr[i] = arr[j], arr[j] = x);
-      return arr;
-    }
+
 
    $('#pictBtn').click(function(){
-      shuffleArr(cards)
-      console.log(cards)
-      console.log(cards[0])
-      $('.picture').html(cards[0])
+      shuffleArr(answerCards)
+      console.log(answerCards[0])
+      $('.picture').html(answerCards[0] + " <br>or<br> " + answerCards[2] + " <br>or<br> " + answerCards[4])
    })
 
 });
