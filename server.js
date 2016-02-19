@@ -36,6 +36,8 @@ mongoose.connect('mongodb://heroku_tg23vpt5:72qsqn1abk15rckjliop1l91v3@ds059195.
   // usernames which are currently connected to the chat
   var usernames = {};
   var numUsers = 0;
+  var line_history = [];
+
 
   io.on('connection', function (socket) {
     var addedUser = false;
@@ -97,6 +99,17 @@ mongoose.connect('mongodb://heroku_tg23vpt5:72qsqn1abk15rckjliop1l91v3@ds059195.
         });
       }
     });
+
+    for( var i in line_history){
+      socket.emit('draw_line', {line: line_history[i]});
+    };
+
+    socket.on('draw_line', function(data){
+      line_history.push(data.line);
+      io.emit('draw_line', {line: data.line});
+    });
+
+
   });
 
 //allows access to methods in passport file

@@ -137,6 +137,8 @@ span.timestamp {
   overflow-y: scroll;
   padding: 10px 20px 10px 20px;
   width: 50%;
+  position: absolute;
+  float: left;
 }
 
 .message.typing .messageBody {
@@ -167,4 +169,33 @@ span.timestamp {
 
 .chatWindow{
   max-width: 50%;
+}
+
+#canvas {
+  display: block;
+  margin-left: 50%;
+  float: right;
+}
+
+#drawing{
+  position: absolute;
+}
+
+#reset{
+  margin-left: 90%;
+}
+
+#pictBtn{
+  margin-left: 90%;
+}
+
+.picture{
+  float: right;
+  margin-left: 55%;
+  margin-right: 5%;
+  margin-top: 5%;
+}
+
+#timer{
+  margin-left: 90%;
 }
