@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
    $('#pictBtn').click(function(){
       shuffleArr(answerCards)
       console.log(answerCards[0])
-      $('.picture').html(answerCards[0] + " <br>or<br> " + answerCards[2] + " <br>or<br> " + answerCards[4])
+      $('.picture').html(answerCards[0] + " <br>or<br> " + answerCards[2] + " <br>or<br> " + answerCards[4] + " <br>or<br> " + answerCards[3])
    })
 
 });
