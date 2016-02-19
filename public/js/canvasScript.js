@@ -54,11 +54,23 @@ document.addEventListener("DOMContentLoaded", function() {
    });
 
 
-   var pictArray = ['monkey', 'frog', 'jaguar', "move", "doctor", "look",
-                    "badge", "quartz", "camera", "wool", "government", "ocean",
-                    "leather", "reaction", "volcano", "scale", "spring", "rake",
-                    "car", "soup", "daughter", "crib", "pail", "voice", "camp", "vest", "measure"
-                    ];
+   var cards = ["A Gypsy curse",
+                "A moment of silence", "A sausage festival", "An honest cop with nothing left to lose", "Famine", "Flesh-eating bacteria", "Flying sex snakes", "Not giving a shit about the Third World",
+                "Sexting", "Porn stars", "72 virgins", "A drive-by shooting", "A time travel paradox", "Authentic Mexican cuisine",
+                "Bling", "Consultants", "Crippling debt", "Daddy issues", "The Donald Trump Seal of Approval™",
+                "Dropping a chandelier on your enemies and riding the rope up", "Former President George W. Bush",
+                "Full frontal nudity", "Hormone injections", "Laying an egg", "Getting naked and watching Nickelodeon",
+                "Pretending to care", "Public ridicule", "Sharing needles", "Boogers",
+                "The inevitable heat death of the universe",
+                "The miracle of childbirth", "The Rapture", "Whipping it out", "White privilege",
+                "Wifely duties", "The Hamburglar", "AXE Body Spray", "The Blood of Christ",
+                "Horrifying laser hair removal accidents", "BATMAN!!!", "Agriculture",
+                "A robust mongoloid", "Natural selection", "Coat hanger abortions",
+                "Eating all of the cookies before the AIDS bake-sale", "Michelle Obama's arms", "The World of Warcraft",
+                "Swooping", "A homoerotic volleyball montage", "A mating display", "Testicular torsion", "All-you-can-eat shrimp for $4.99",
+                "Domino's™ Oreo™ Dessert Pizza", "Kanye West", "Hot cheese", "Raptor attacks", "Taking off your shirt",
+                "Smegma", "Alcoholism", "A middle-aged man on roller skates", "The Care Bear Stare"
+                ]
 
    function shuffleArr(arr){
       for(var j, x, i = arr.length; i; j = parseInt(Math.random() * i), x = arr[--i], arr[i] = arr[j], arr[j] = x);
@@ -66,11 +78,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
    $('#pictBtn').click(function(){
-      shuffleArr(pictArray)
-      console.log(pictArray)
-      console.log(pictArray[0])
-      $('.picture').html(pictArray[0])
-      countDown();
+      shuffleArr(cards)
+      console.log(cards)
+      console.log(cards[0])
+      $('.picture').html(cards[0])
    })
 
 });
