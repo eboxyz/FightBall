@@ -49,6 +49,9 @@ document.addEventListener("DOMContentLoaded", function() {
    }
    mainLoop();
 
+   $('#reset').click(function(){
+    context.clearRect(0, 0, canvas.width, canvas.height);
+   });
 
 
    var cards = ["A Gypsy curse",
